@@ -14,7 +14,7 @@ class Wall {
     switch (theme) {
         
       case "yellow":
-        fill(0);
+        fill(100);
         break;
         
       case "pink":
