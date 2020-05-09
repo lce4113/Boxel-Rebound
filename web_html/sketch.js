@@ -1,51 +1,69 @@
-let imgGround;
-let blockSize = 20;
-let scroll = 0;
-let scrollSpeed = 3;
-let page = "menu";
-let theme = "yellow";
-let levelsWon = new Array(20).fill(false);
-let level;
-
-function preload() {
-  imgGround = loadImage("https://www.kasandbox.org/third_party/javascript-khansrc/live-editor/build/images/cute/GrassBlock.png");
-}
+var imgGround;
+var blockSize = 20;
+var scroll = 0;
+var slowScroll = 2.5;
+var normScroll = 3.5;
+var scrollSpeed = normScroll;
+var page = "menu";
+var settings = false;
+var theme = "yellow";
+var levelsWon = new Array(20).fill(false);
+var cam;
+var level;
 
 function setup() {
   
   createCanvas(400, 400);
+  cam = createVector(0, height);
   scene = new Background();
   
 }
 
 function draw() {
-
-  translate(0, height);  //moves the origin to bottom left
-  scale(1, -1);  //flips the y values so y increases "up"
   
   noStroke();
   
-  scene.draw();
+  translate(cam);
+  scale(1, -1);
+  
+  scene.drawBack();
   scroll += scrollSpeed;
   
   if (page.slice(0, 5) == "level") {
+    cam.x = -scroll;
     level.draw();
     level.player.update();
+  } else {
+    cam.x = 0;
   }
+  
+  scene.drawFront();
   
 }
 
 function mousePressed() {
-  if (page == "menu") {
+    
+  if (mouseX >= scene.menuPadding && mouseX <= scene.menuPadding+scene.homeSize && mouseY >= scene.menuPadding && mouseY <= scene.menuPadding+scene.homeSize) {
+    page = "menu";
+  } else if (mouseX >= 400-scene.menuPadding-scene.homeSize && mouseX <= 400-scene.menuPadding && mouseY >= scene.menuPadding && mouseY <= scene.menuPadding+scene.homeSize) {
+    settings = !settings;
+  }
+  
+  if (page.slice(0, 5) == "level") {
+    
+    level.player.jump();
+    
+  } else if (page == "menu") {
+    
     for (let i = 0; i < 5; i++) {
       for (let j = 0; j < 4; j++) {
         if (abs(mouseX - (i*60+80)) <= 20 && abs(mouseY - (j*60+140)) <= 20) {
-          scroll = 0;
           page = "level" + str(i+j*5+1);
           level = new Level(i+j*5+1);
         }
       }
     }
+    
   }
 }
 
