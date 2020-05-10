@@ -67,11 +67,11 @@ class Background {
     this.menuPadding = 20;
     this.homeSize = 40;
     
-    this.volume = createSlider(0, 0.5, 0.1, 0);
+    this.volume = createSlider(0, 0.5, 0, 0);
     this.volume.hide();
     this.speakerSize = 20;
     this.speakerPos = createVector(width/2-75-this.speakerSize*1/2, this.menuPadding+this.homeSize/2);
-    this.volume.position(this.speakerPos.x+this.speakerSize*2, this.speakerPos.y-this.speakerSize*1/2);
+    this.volume.position(this.speakerPos.x+this.speakerSize*2, this.speakerPos.y-this.speakerSize*1/8);
 
     this.layer1Width = 0;
     this.layer2Width = 0;
