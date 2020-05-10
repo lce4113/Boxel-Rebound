@@ -17,10 +17,10 @@ docker-compose down
 ```
 
 ## To Do List
-* fix background.js this.x error - mikey - working
+* Fix background.js this.x error - mikey
+* Add finished board to end of levels (with stars) - Mikey
 * Make scroll back exponential (try to make player land on obstacle after jumping)
 * Add more layers to background
 * Add more themes
 * Add themes to settings
-* Add finished board to end of levels (with stars)
-* 
+* Add finished board to end of levels (with stars) - Om

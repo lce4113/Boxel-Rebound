@@ -6,7 +6,8 @@ class Level {
     this.stage = "playing";
     scroll = 0;
     scrollSpeed = normScroll;
-    print(scrollSpeed);
+    this.pause = false;
+    this.timer = 0;
 
     this.levelNum = num;
     switch (this.levelNum) {
@@ -45,32 +46,32 @@ class Level {
   }
   
   draw() {
-    
-    // Timer
-    push();
-    resetMatrix();
-    textSize(50);
-    textAlign(CENTER, CENTER);
-    if (counter >= 0) {
-      counter++;
+
+    if (!this.pause) {
+      this.timer += 1/60;
+      this.player.update();
     }
-    
-    minutes = floor(counter/60);
-    seconds = counter % 60;
-    
-    fill(255);
-    text(minutes + ":" + seconds, 200, 100);
-    pop();
 
     push();
     scale(1, -1);
     translate(0, -height);
-
     this.player.draw();
     for (let i = 0 ; i < this.obstacles.length; i++) {
       this.obstacles[i].draw();
     }
     pop();
+
+  }
+
+  pauseLvl() {
+
+    this.pause = !this.pause;
+    if (this.pause) {
+      scrollStore = scrollSpeed;
+      scrollSpeed = 0;
+    } else {
+      scrollSpeed = scrollStore;
+    }
 
   }
 

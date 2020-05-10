@@ -6,6 +6,18 @@ class Background {
     this.y = 0;
     this.pos = createVector(x, y);
 
+    this.settings = false;
+    this.lvlFinished = false;
+
+    this.menuPadding = 20;
+    this.homeSize = 40;
+    
+    this.volume = createSlider(0, 0.5, 0, 0);
+    this.volume.hide();
+    this.speakerSize = 20;
+    this.speakerPos = createVector(width/2-75-this.speakerSize*1/2, this.menuPadding+this.homeSize/2);
+    this.volume.position(this.speakerPos.x+this.speakerSize*2, this.speakerPos.y-this.speakerSize*1/8);
+
     this.layer1 = [
       [90, 100], // Start
       [50, 205],
@@ -64,15 +76,6 @@ class Background {
       [60, 60] // Start
     ];
 
-    this.menuPadding = 20;
-    this.homeSize = 40;
-    
-    this.volume = createSlider(0, 0.5, 0, 0);
-    this.volume.hide();
-    this.speakerSize = 20;
-    this.speakerPos = createVector(width/2-75-this.speakerSize*1/2, this.menuPadding+this.homeSize/2);
-    this.volume.position(this.speakerPos.x+this.speakerSize*2, this.speakerPos.y-this.speakerSize*1/8);
-
     this.layer1Width = 0;
     this.layer2Width = 0;
 
@@ -112,13 +115,19 @@ class Background {
 
   drawFront() {
 
-    if (settings) {
-      this.settings();
+    if (this.settings) {
+      this.settingsBar();
     } else {
       this.volume.hide();
     }
 
-    this.buttons();
+    if (this.lvlFinished) {
+      this.levelCompleted();
+    }
+
+    if (page.slice(0, 5) == "level" || page == "menu") {
+      this.buttons();
+    }
 
   }
 
@@ -272,7 +281,7 @@ class Background {
 
   }
 
-  settings() {
+  settingsBar() {
     
     push();
     resetMatrix();
@@ -303,6 +312,10 @@ class Background {
     rect(10, 10, 10, 10, 5);
     
     pop();
+
+  }
+
+  levelCompleted() {
 
   }
 
