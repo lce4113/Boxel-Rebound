@@ -47,10 +47,31 @@ class Level {
   
   draw() {
     
+    // Timer
+    push();
+    resetMatrix();
+    textSize(50);
+    textAlign(CENTER, CENTER);
+    if (counter >= 0) {
+      counter++;
+    }
+    
+    minutes = floor(counter/60);
+    seconds = counter % 60;
+    
+    fill(255);
+    text(minutes + ":" + seconds, 200, 100);
+    pop();
+
+    push();
+    scale(1, -1);
+    translate(0, -height);
+
     this.player.draw();
     for (let i = 0 ; i < this.obstacles.length; i++) {
       this.obstacles[i].draw();
     }
+    pop();
 
   }
 

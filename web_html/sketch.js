@@ -28,20 +28,19 @@ function preload() {
 function setup() {
   
   createCanvas(400, 400);
-  cam = createVector(0, height);
+  cam = createVector(0, 0);
   scene = new Background();
   //music.loop(0, 1, 1, 3.1, 11.1); // reverb
   music.loop(0, 1, 1, 0, 13.68); // hype
   masterVolume(0.1);
-  setInterval(scene, 1000);
+  setInterval(scene.scene, 1000);
 }
 
 function draw() {
-  
+
   noStroke();
   
   translate(cam);
-  scale(1, -1);
   
   scene.drawBack();
   scroll += scrollSpeed;

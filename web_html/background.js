@@ -179,22 +179,7 @@ class Background {
       xWidth += this.layer2[i][0];
     }
 
-    // timer
-    //if (player.status == playing) {
-      // 1 counter = 1 second
-      textAlign(CENTER, CENTER);
-      if (counter >= 0) {
-        counter++;
-      }
-      
-      minutes = floor(counter/60);
-      seconds = counter % 60;
-      
-      // if (counter < 60)
-      
-      text(minutes + ":" + seconds, 200, 300);
-    //}
-      pop();
+    pop();
   
     }
 
@@ -202,6 +187,10 @@ class Background {
 
     this.scene();
 
+    push();
+    resetMatrix();
+    scale(1, -1);
+    translate(0, -height);
     // borders
     switch (theme) {
 
@@ -219,8 +208,7 @@ class Background {
     rect(400-this.menuPadding, 0, this.menuPadding, 340-this.menuPadding);
     rect(0, 340-this.menuPadding, 400, 60+this.menuPadding);
 
-    push();
-    resetMatrix();
+    pop();
     // levels
     rectMode(CENTER);
     textAlign(CENTER, CENTER);
@@ -281,7 +269,6 @@ class Background {
     }
     textSize(40);
     text("Main Menu", 200, 30+this.menuPadding/2);
-    pop();
 
   }
 
