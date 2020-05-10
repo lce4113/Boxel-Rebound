@@ -352,8 +352,6 @@ class Background {
     // levels
     pop();
     textAlign(CENTER, CENTER);
-    scale(1, -1);
-    translate(0, -height);
     for (let i = 0; i < 5; i++) {
       for (let j = 0; j < 4; j++) {
         // levels box colors
