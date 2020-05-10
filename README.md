@@ -16,3 +16,6 @@ Open terminal and type the following from the project directory
 docker-compose down
 ```
 
+## To Do List
+* fix background.js this.x error - mikey - working
+* 
