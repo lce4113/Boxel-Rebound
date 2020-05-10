@@ -82,53 +82,66 @@ class Player {
     }
     
     this.spin = true;
+    this.behind = false;
     
     for (let i = 0; i < level.obstacles.length; i++) {
       
       let currObj = level.obstacles[i];
       
       if (this.pos.x < currObj.pos.x + blockSize && this.pos.x > currObj.pos.x - blockSize && this.pos.y < currObj.pos.y + blockSize && this.pos.y > currObj.pos.y - blockSize) {
-        
-        switch (currObj.constructor.name) {
-          
-          case "Trampoline":
-          case "Wall":
-            
-            this.behind = false;
 
-            if (this.pPos.y - currObj.pos.y > abs(this.pPos.x - currObj.pos.x) && this.pPos.y > currObj.pos.y && this.pPos.x + this.size > currObj.pos.x && this.pPos.x < currObj.pos.x + blockSize) {
+        // On top
+        if (this.pPos.y - currObj.pos.y > abs(this.pPos.x - currObj.pos.x) && this.pPos.y > currObj.pos.y && this.pPos.x + this.size > currObj.pos.x && this.pPos.x < currObj.pos.x + blockSize) {
+          
+          switch (currObj.constructor.name) {
+            
+            case "Trampoline":
+
+              this.pos.y = currObj.pos.y + blockSize;
+              this.vel.y = 0;
+              this.jumpCount = 0;
+              this.jump(15);
+                
+              break;
               
+            case "Wall":
+                
               this.pos.y = currObj.pos.y + blockSize;
               this.vel.y = 0;
               this.jumpCount = 0;
               this.spin = false;
-
-            } else if (currObj.pos.y - this.pPos.y > abs(this.pPos.x - currObj.pos.x) && currObj.pos.y > this.pPos.y && this.pPos.x + this.size > currObj.pos.x && this.pPos.x < currObj.pos.x + blockSize) {
-
-              this.pos.y = currObj.pos.y - blockSize;
-              this.vel.y = 0;
-              this.spin = false;
-
-            } else if (currObj.pos.x - this.pPos.x > abs(this.pPos.y - currObj.pos.y) && currObj.pos.x > this.pPos.x) {
+                
+              break;
               
-              this.pos.x = currObj.pos.x - blockSize;
-              this.behind = true;
-              this.spin = false;
+            case "FinishLine":
               
-            }
-            break;
+              page = "menu";
+              levelsWon[level.levelNum-1] = true;
+              
+              break;
+              
+            case "Spike":
+              
+              this.status = "dead";
+              
+              break;
             
-          case "FinishLine":
-            
-            page = "menu";
-            levelsWon[level.levelNum-1] = true;
-            break;
-            
-          case "Spike":
-            
-            this.status = "dead";
-            break;
+          }
           
+        // Under
+        } else if (currObj.pos.y - this.pPos.y > abs(this.pPos.x - currObj.pos.x) && currObj.pos.y > this.pPos.y && this.pPos.x + this.size > currObj.pos.x && this.pPos.x < currObj.pos.x + blockSize) {
+
+          this.pos.y = currObj.pos.y - blockSize;
+          this.vel.y = 0;
+          this.spin = false;
+
+        // Left
+        } else if (currObj.pos.x - this.pPos.x > abs(this.pPos.y - currObj.pos.y) && currObj.pos.x > this.pPos.x) {
+
+          this.pos.x = currObj.pos.x - blockSize;
+          this.behind = true;
+          this.spin = false;
+
         }
         
       }

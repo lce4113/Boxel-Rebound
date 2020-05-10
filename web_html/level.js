@@ -13,7 +13,6 @@ class Level {
         
       case 1:
         this.map = [["floor", 0, 9, 30],  // Start
-                    ["spike", 15, 10, 1],  // Spike in the middle
                     ["trampoline", 20, 10, 1],
                     ["finishLine", 30, 9, 3],  // Finish
                     ];

@@ -32,8 +32,9 @@ function setup() {
   scene = new Background(0, 0);
   //music.loop(0, 1, 1, 3.1, 11.1); // reverb
   music.loop(0, 1, 1, 0, 13.68); // hype
-  masterVolume(0.1);
+  masterVolume(0);
   setInterval(scene.scene, 1000);
+
 }
 
 function draw() {
