@@ -349,9 +349,8 @@ class Background {
     rect(400-this.menuPadding, 0, this.menuPadding, 340-this.menuPadding);
     rect(0, 340-this.menuPadding, 400, 60+this.menuPadding);
 
-    push();
-    resetMatrix();
     // levels
+    pop();
     textAlign(CENTER, CENTER);
     for (let i = 0; i < 5; i++) {
       for (let j = 0; j < 4; j++) {
@@ -405,24 +404,21 @@ class Background {
     }
     textSize(40);
     text("Main Menu", 200, 30+this.menuPadding/2);
-    pop();
 
   }
 
   settings() {
-
-    push();
-    resetMatrix();
+    
     fill(0,0,0,200);
-    rect(0, 0, 400, 200);
-    pop();
+    rect(0, 200, 400, 200);
 
   }
 
   buttons() {
     
     push();
-    resetMatrix();
+    scale(1, -1);
+    translate(0, -height);
     
     // Home button
     // Home box color
@@ -524,7 +520,6 @@ class Background {
       rotate(TAU/8);
       square(0, this.homeSize*3/8, this.homeSize*5/32, 2);
     }
-    rectMode(CORNER);
     pop();
     
   }
