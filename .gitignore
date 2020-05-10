@@ -1,0 +1,19 @@
+.DS_Store
+
+.git
+.env*
+env/
+.docker_build/
+bin/
+#vendor/*/
+
+# Python
+__pycache__
+.venv*
+envs*
+results/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
