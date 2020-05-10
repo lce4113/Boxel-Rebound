@@ -178,9 +178,25 @@ class Background {
       rect(this.pos.x + xWidth, this.pos.y, this.layer2[i][0], this.layer2[i][1]);
       xWidth += this.layer2[i][0];
     }
-    pop();
 
-  }
+    // timer
+    //if (player.status == playing) {
+      // 1 counter = 1 second
+      textAlign(CENTER, CENTER);
+      if (counter >= 0) {
+        counter++;
+      }
+      
+      minutes = floor(counter/60);
+      seconds = counter % 60;
+      
+      // if (counter < 60)
+      
+      text(minutes + ":" + seconds, 200, 300);
+    //}
+      pop();
+  
+    }
 
   menu() {
 
@@ -412,5 +428,6 @@ class Background {
     pop();
 
   }
+
 
 }

@@ -27,7 +27,7 @@ class Level {
                     ["floor", 35, 12.5, 10],  // Tunnel top
                     ["pillar", 45, 12.5, 7],  // Above tunnel
                     ["floor", 50, 9, 8],  // After tunnel
-                    ["floor", 60, 13, 3],  // Little floor up
+                    ["floor", 60, 12.5, 3],  // Little floor up
                     ["finishLine", 67.5, 10, 3],  // Finish
                     ];
         break;

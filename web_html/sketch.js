@@ -1,17 +1,20 @@
 var imgGround;
 var blockSize = 20;
 var scroll = 0;
-var slowScroll = 2;
+var slowScroll = 3;
 var normScroll = 3;
 var scrollSpeed = normScroll;
 var page = "menu";
 var settings = false;
-var theme = "pink";
+var theme = "yellow";
 var levelsWon = new Array(20).fill(false);
 var cam;
 var level;
 var reverb, hype;
 var music;
+var timer;
+var counter = 0;
+var seconds, minutes;
 
 function preload() {
   
@@ -27,11 +30,10 @@ function setup() {
   createCanvas(400, 400);
   cam = createVector(0, height);
   scene = new Background();
-  
   //music.loop(0, 1, 1, 3.1, 11.1); // reverb
   music.loop(0, 1, 1, 0, 13.68); // hype
   masterVolume(0.1);
-  
+  setInterval(scene, 1000);
 }
 
 function draw() {
