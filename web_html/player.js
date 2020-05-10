@@ -5,6 +5,7 @@ class Player {
     this.pPos = createVector(x, y);
     this.pos = createVector(x, y);
     this.size = blockSize;
+    this.returnVel = 0;
     
     this.vel = createVector(scrollSpeed, 0);
     this.grav = createVector(0, 0.6);
@@ -39,9 +40,9 @@ class Player {
     
   }
 
-  jump() {
+  jump(high=10) {
     if (this.jumpCount < 1) {
-      this.vel = createVector(scrollSpeed, 10);
+      this.vel = createVector(scrollSpeed, high);
       this.jumpCount++;
       this.spin = true;
     }
@@ -65,9 +66,12 @@ class Player {
     if (this.pos.x < scroll + 100) {
       scrollSpeed = slowScroll;
       if (!this.behind) {
-        this.pos.x += 1;
+        this.vel.x += 0.05;
+      } else if (scrollSpeed < normScroll) {
+        scrollSpeed += (normScroll-slowScroll)/50;
       }
     } else {
+      this.vel.x = scrollSpeed;
       scrollSpeed = normScroll;
     }
     
@@ -87,6 +91,7 @@ class Player {
         
         switch (currObj.constructor.name) {
           
+          case "Trampoline":
           case "Wall":
             
             this.behind = false;
@@ -133,3 +138,5 @@ class Player {
   }
     
 }
+
+ 

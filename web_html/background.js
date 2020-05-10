@@ -296,6 +296,9 @@ class Background {
     this.volume.show();
     masterVolume(this.volume.value());
     
+    // Sound effects
+    rect(10, 10, 10, 10, 5);
+    
     pop();
 
   }

@@ -5,19 +5,22 @@ class Level {
     this.player = new Player(100, 200);
     this.stage = "playing";
     scroll = 0;
+    scrollSpeed = normScroll;
+    print(scrollSpeed);
 
     this.levelNum = num;
     switch (this.levelNum) {
         
       case 1:
-        this.map = [["floor", 0, 9, 20],  // Start
+        this.map = [["floor", 0, 9, 30],  // Start
                     ["spike", 15, 10, 1],  // Spike in the middle
-                    ["finishLine", 20, 9, 3],  // Finish
+                    ["trampoline", 20, 10, 1],
+                    ["finishLine", 30, 9, 3],  // Finish
                     ];
         break;
         
       case 2:
-        this.map = [["floor", 0, 90, 9],  // Start
+        this.map = [["floor", 0, 9, 9],  // Start
                     ["floor", 11, 12, 7],  // Second floor
                     ["floor", 21.5, 10, 10],  // Floor after wall
                     ["floor", 36, 10, 9],  // Tunnel bottom
@@ -56,7 +59,6 @@ class Level {
     for (let i = 0; i < this.map.length; i++) {
       
       switch (this.map[i][0]) {
-          
         case "floor":
 
           for (let j = 0; j < this.map[i][3]; j++) {
@@ -84,9 +86,15 @@ class Level {
             this.obstacles.push( new Spike(blockSize*(this.map[i][1]+j), blockSize*this.map[i][2]) );
           }
           break;
+
+        case "trampoline":
+
+          for (let j = 0; j < this.map[i][3]; j++) {
+            this.obstacles.push( new Trampoline(blockSize*(this.map[i][1]+j), blockSize*this.map[i][2]) );
+          }
+          break;
           
       }
-      
     }
     
   }

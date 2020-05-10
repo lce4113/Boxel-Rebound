@@ -1,21 +1,36 @@
 var imgGround;
 var blockSize = 20;
 var scroll = 0;
-var slowScroll = 2.5;
-var normScroll = 3.5;
+var slowScroll = 2;
+var normScroll = 3;
 var scrollSpeed = normScroll;
 var page = "menu";
 var settings = false;
-var theme = "yellow";
+var theme = "pink";
 var levelsWon = new Array(20).fill(false);
 var cam;
 var level;
+var reverb, hype;
+var music;
+
+function preload() {
+  
+  // Music
+  reverb = loadSound("reverb.mp3");
+  hype = loadSound("hype.m4a");
+  music = hype;
+  
+}
 
 function setup() {
   
   createCanvas(400, 400);
   cam = createVector(0, height);
   scene = new Background();
+  
+  //music.loop(0, 1, 1, 3.1, 11.1); // reverb
+  music.loop(0, 1, 1, 0, 13.68); // hype
+  masterVolume(0.1);
   
 }
 
