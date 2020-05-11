@@ -24,3 +24,5 @@ docker-compose down
 * Add more themes
 * Add themes to settings
 * Add finished board to end of levels (with stars) - Om
+* Add favicon - Mikey (done)
+
