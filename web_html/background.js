@@ -105,6 +105,74 @@ class Background {
         this.scene();
         break;
 
+      case "level3":
+        this.scene();
+        break;
+
+      case "level4":
+        this.scene();
+        break;
+
+      case "level5":
+        this.scene();
+        break;
+
+      case "level6":
+        this.scene();
+        break;
+
+      case "level7":
+        this.scene();
+        break;
+
+      case "level8":
+        this.scene();
+        break;
+
+      case "level9":
+        this.scene();
+        break;
+
+      case "level10":
+        this.scene();
+        break;
+
+      case "level11":
+        this.scene();
+        break;
+
+      case "level12":
+        this.scene();
+        break;
+
+      case "level13":
+        this.scene();
+        break;
+
+      case "level14":
+        this.scene();
+        break;
+
+      case "level15":
+        this.scene();
+        break;
+
+      case "level16":
+        this.scene();
+        break;
+
+      case "level17":
+        this.scene();
+        break;
+
+      case "level18":
+        this.scene();
+        break;
+
+      case "level19":
+        this.scene();
+        break;
+
       case "level20":
         this.scene();
         break;

@@ -32,6 +32,108 @@ class Level {
                     ];
         break;
         
+      case 3:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 4:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 5:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 6:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+
+      case 7:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 8:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 9:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 10:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 11:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 12:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+
+      case 13:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 14:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+      
+      case 15:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 16:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 17:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
+      case 18:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+
+      case 19:
+        this.map = [["floor", 0, 9, 100],  // Start
+                    ["finishLine", 100, 5, 3],  // Finish
+                    ];
+        break;
+        
       case 20:
         this.map = [["floor", 0, 9, 100],  // Start
                     ["finishLine", 100, 5, 3],  // Finish
