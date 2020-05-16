@@ -2,7 +2,7 @@ class Level {
   
   constructor(num) {
     
-    this.player = new Player(100, 200);
+    this.player = new Player(100, 300);
     this.stage = "playing";
     scroll = 0;
     scrollSpeed = normScroll;
@@ -20,15 +20,11 @@ class Level {
         break;
         
       case 2:
-        this.map = [["floor", 0, 9, 9],  // Start
-                    ["floor", 11, 12, 7],  // Second floor
-                    ["floor", 21.5, 10, 10],  // Floor after wall
-                    ["floor", 36, 10, 9],  // Tunnel bottom
-                    ["floor", 35, 12.5, 10],  // Tunnel top
-                    ["pillar", 45, 12.5, 7],  // Above tunnel
-                    ["floor", 50, 9, 8],  // After tunnel
-                    ["floor", 60, 12.5, 3],  // Little floor up
-                    ["finishLine", 67.5, 10, 3],  // Finish
+        this.map = [["floor", 0, 9, 10],  // Start
+                    ["pillar", 10, 9, 3],
+                    ["pillar", 13, 14, 1],
+                    ["pillar", 16, 17, 1],
+                    ["finishLine", 100, 5, 3],  // Finish
                     ];
         break;
         
@@ -69,8 +65,15 @@ class Level {
         break;
         
       case 9:
-        this.map = [["floor", 0, 9, 100],  // Start
-                    ["finishLine", 100, 5, 3],  // Finish
+        this.map = [["floor", 0, 9, 9],  // Start
+                    ["floor", 11, 12, 7],  // Second floor
+                    ["floor", 21.5, 10, 10],  // Floor after wall
+                    ["floor", 36, 10, 9],  // Tunnel bottom
+                    ["floor", 35, 12.5, 10],  // Tunnel top
+                    ["pillar", 45, 12.5, 7],  // Above tunnel
+                    ["floor", 50, 9, 8],  // After tunnel
+                    ["floor", 60, 12.5, 3],  // Little floor up
+                    ["finishLine", 72, 3, 2],  // Finish
                     ];
         break;
         
