@@ -44,35 +44,35 @@ class Background {
     ];
 
     this.layer2 = [
-      [150, 100], // Start
+      [150, 90], // Start
       [50, 25], // Start
       [30, 130], // Start
-      [50, 100], // Start
+      [50, 90], // Start
       [60, 60], // Start
-      [150, 100], // Start
+      [150, 90], // Start
       [50, 25], // Start
       [30, 130], // Start
       [50, 100], // 620
       [60, 60], // Start
-      [150, 100], // Start
+      [150, 90], // Start
       [50, 25], // Start
       [30, 130], // Start
-      [50, 100], // Start
+      [50, 90], // Start
       [60, 60], // Start
-      [150, 100], // Start
+      [150, 90], // Start
       [50, 25], // Start
       [30, 130], // Start
-      [50, 100], // Start
+      [50, 90], // Start
       [60, 60], // Start
-      [150, 100], // Start
+      [150, 90], // Start
       [50, 25], // Start
       [30, 130], // Start
-      [50, 100], // 620
+      [50, 90], // 620
       [60, 60], // Start
-      [150, 100], // Start
+      [150, 90], // Start
       [50, 25], // Start
       [30, 130], // Start
-      [50, 100], // Start
+      [50, 90], // Start
       [60, 60] // Start
     ];
 
