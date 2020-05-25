@@ -7,7 +7,7 @@ class Player {
     this.size = blockSize;
     this.returnVel = 0;
     
-    this.vel = createVector(scrollSpeed, 0);
+    this.vel = scrollVel;
     this.grav = createVector(0, 0.6);
     this.jumpCount = 0;
     this.spin = false;
@@ -42,7 +42,7 @@ class Player {
 
   jump(high=10) {
     if (this.jumpCount < 1) {
-      this.vel = createVector(scrollSpeed, high);
+      this.vel.y = high;
       this.jumpCount++;
       this.spin = true;
     }
@@ -59,20 +59,20 @@ class Player {
     this.vel.sub(this.grav);
     this.pos.add(this.vel);
     
-    if (this.pos.x < scroll || this.pos.y < 0) {
+    if (this.pos.x < scroll.x || this.pos.y < 0) {
       this.status = "dead";
     }
     
-    if (this.pos.x < scroll + 100) {
-      scrollSpeed = slowScroll;
+    if (this.pos.x < scroll.x + 100) {
       if (!this.behind) {
         this.vel.x += 0.05;
-      } else if (scrollSpeed < normScroll) {
-        scrollSpeed += (normScroll-slowScroll)/50;
+        scrollVel = normScroll;
+      } else {
+        scrollVel = slowScroll;
       }
     } else {
-      this.vel.x = scrollSpeed;
-      scrollSpeed = normScroll;
+      scrollVel = normScroll;
+      this.vel = scrollVel;
     }
     
     if (this.spin) {

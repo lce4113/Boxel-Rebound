@@ -230,7 +230,69 @@ class Background {
         break;
 
     }
-    this.pos.x = (this.x - 0.5 * scroll) % (this.layer1Width / 2);
+    this.pos.y = 200-level.player.pos.y;
+    this.pos.x = (this.x - 0.5 * scroll.x) % (this.layer1Width / 2);
+
+    for (let i = 0, xWidth = 0; i < this.layer1.length; i++) {
+      rect(this.pos.x + xWidth, this.pos.y-500, this.layer1[i][0], this.layer1[i][1]+500);
+      xWidth += this.layer1[i][0];
+    }
+
+    // layer 2
+    switch (theme) {
+
+      case "yellow":
+        fill(255, 111, 0);
+        break;
+
+      case "pink":
+        fill(236, 172, 191);
+        break;
+
+    }
+    this.pos.x = (this.x - 0.6 * scroll.x) % (this.layer2Width / 2);
+
+    for (let i = 0, xWidth = 0; i < this.layer2.length; i++) {
+      rect(this.pos.x + xWidth, this.pos.y-500, this.layer2[i][0], this.layer2[i][1]+500);
+      xWidth += this.layer2[i][0];
+    }
+
+    pop();
+  
+  }
+
+  menu() {
+
+    push();
+    resetMatrix();
+    scale(1, -1);
+    translate(0, -height);
+    // Background depending on color scheme
+    switch (theme) {
+
+      case "yellow":
+        background(255, 202, 40);
+        break;
+
+      case "pink":
+        background(255);
+        break;
+
+    }
+
+    // layer 1
+    switch (theme) {
+
+      case "yellow":
+        fill(255, 160, 0);
+        break;
+
+      case "pink":
+        fill(240, 207, 216);
+        break;
+
+    }
+    this.pos.x = (this.x - 0.5 * scroll.x) % (this.layer1Width / 2);
 
     for (let i = 0, xWidth = 0; i < this.layer1.length; i++) {
       rect(this.pos.x + xWidth, this.pos.y, this.layer1[i][0], this.layer1[i][1]);
@@ -249,7 +311,7 @@ class Background {
         break;
 
     }
-    this.pos.x = (this.x - 0.6 * scroll) % (this.layer2Width / 2);
+    this.pos.x = (this.x - 0.6 * scroll.x) % (this.layer2Width / 2);
 
     for (let i = 0, xWidth = 0; i < this.layer2.length; i++) {
       rect(this.pos.x + xWidth, this.pos.y, this.layer2[i][0], this.layer2[i][1]);
@@ -257,12 +319,6 @@ class Background {
     }
 
     pop();
-  
-    }
-
-  menu() {
-
-    this.scene();
 
     push();
     resetMatrix();

@@ -1,18 +1,13 @@
 var imgGround;
 var blockSize = 20;
-var scroll = 0;
-var slowScroll = 3;
-var normScroll = 3;
-var scrollSpeed = normScroll;
-var scrollStore = scrollSpeed;
+var scroll, slowScroll, normScroll, scrollBack, scrollVel, scrollStore;
 var page = "menu";
 var settings = false;
 var theme = "yellow";
 var levelsWon = new Array(20).fill(false);
 var cam;
 var level;
-var reverb, hype;
-var music;
+var reverb, hype, music;
 var timer;
 var counter = 0;
 var seconds, minutes;
@@ -28,8 +23,14 @@ function preload() {
 
 function setup() {
   
-  createCanvas(400, 400);
+  scroll = createVector(0, 0);
+  slowScroll = createVector(2, 0);
+  normScroll = createVector(3, 0);
+  scrollBack = createVector(0, 0);
+  scrollVel = normScroll;
+  scrollStore = scrollVel;
   cam = createVector(0, 0);
+  createCanvas(400, 400);
   scene = new Background(0, 0);
   switch (music) {
     case reverb:
@@ -46,12 +47,12 @@ function draw() {
   noStroke();
   
   translate(cam);
-  
+
   scene.drawBack();
-  scroll += scrollSpeed;
+  scroll.add(scrollVel);
   
   if (page.slice(0, 5) == "level") {
-    cam.x = -scroll;
+    cam.x = -scroll.x;
     level.draw();
   } else {
     cam.x = 0;

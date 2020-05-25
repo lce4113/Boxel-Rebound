@@ -4,8 +4,8 @@ class Level {
     
     this.player = new Player(100, 300);
     this.stage = "playing";
-    scroll = 0;
-    scrollSpeed = normScroll;
+    scroll = createVector(0, 0);
+    scrollVel = normScroll;
     this.pause = false;
     this.timer = 0;
 
@@ -142,7 +142,7 @@ class Level {
                     ["finishLine", 100, 5, 3],  // Finish
                     ];
         break;
-        
+
     }
     
     this.obstacles = [];
