@@ -20,10 +20,10 @@ class Level {
         break;
         
       case 2:
-        this.map = [["floor", 0, 9, 10],  // Start
-                    ["pillar", 10, 9, 3],
-                    ["pillar", 13, 14, 1],
-                    ["pillar", 16, 17, 1],
+      this.map = [["floor", 0, 9, 15],  // Start
+                    ["pillar", 15, 9, 3],
+                    ["pillar", 18, 14, 1],
+                    ["pillar", 22, 17, 1],
                     ["finishLine", 100, 5, 3],  // Finish
                     ];
         break;
