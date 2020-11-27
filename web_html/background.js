@@ -10,7 +10,6 @@ class Background {
     this.lvlFinished = false;
 
     this.menuPadding = 20;
-    this.homeSize = 40;
     
     this.volume = createSlider(0, 0.5, 0, 0);
     this.volume.hide();
@@ -447,8 +446,15 @@ class Background {
 
     push();
     resetMatrix();
+    rectMode(CENTER);
 
     // Home button
+    if (mouseCheck(scene.menuPadding+scene.homeSize/2, scene.menuPadding+scene.homeSize/2, scene.homeSize, scene.homeSize)) {
+      this.homeSize = 50;
+    } else {
+      this.homeSize = 40;
+    }
+
     // Home box color
     switch (theme) {
 
@@ -491,6 +497,12 @@ class Background {
     rect(this.menuPadding+this.homeSize*5/12, this.menuPadding+this.homeSize*19/32, this.homeSize/6, this.homeSize*9/32);
 
     // Settings button
+    if (mouseCheck(width-scene.menuPadding-scene.settingsSize/2, scene.menuPadding+scene.settingsSize/2, scene.settingsSize, scene.settingsSize)) {
+      this.settingsSize = 50;
+    } else {
+      this.settingsSize = 40;
+    }
+
     // Home box color
     switch (theme) {
 
@@ -503,7 +515,7 @@ class Background {
         break;
 
     }
-    rect(400-this.homeSize-this.menuPadding, this.menuPadding, this.homeSize, this.homeSize, 10);
+    rect(width-20-this.menuPadding, this.menuPadding+20, this.settingsSize, this.settingsSize, 10);
     // Home color
     switch (theme) {
 
@@ -516,7 +528,7 @@ class Background {
         break;
 
     }
-    circle(400-this.menuPadding-this.homeSize/2, this.menuPadding+this.homeSize/2, this.homeSize*11/16);
+    circle(400-this.menuPadding-20, this.menuPadding+20, this.settingsSize*11/16);
     // Home box color
     switch (theme) {
 
@@ -529,7 +541,7 @@ class Background {
         break;
 
     }
-    circle(400-this.menuPadding-this.homeSize/2, this.menuPadding+this.homeSize/2, this.homeSize*7/16);
+    circle(width-this.menuPadding-20, this.menuPadding+20, this.settingsSize*7/16);
     // Home color
     switch (theme) {
 
@@ -542,11 +554,10 @@ class Background {
         break;
 
     }
-    rectMode(CENTER);
-    translate(400-this.menuPadding-this.homeSize/2, this.menuPadding+this.homeSize/2);
+    translate(width-this.menuPadding-20, this.menuPadding+20);
     for (let i = 0; i < 8; i++) {
       rotate(TAU/8);
-      square(0, this.homeSize*3/8, this.homeSize*5/32, 2);
+      square(0, this.settingsSize*3/8, this.settingsSize*5/32, 2);
     }
     rectMode(CORNER);
     pop();

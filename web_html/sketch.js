@@ -1,6 +1,6 @@
 var imgGround;
 var blockSize = 20;
-var scroll, slowScroll, normScroll, scrollBack, scrollVel, scrollStore;
+var scroll, normScroll, scrollVel, scrollStore;
 var page = "menu";
 var settings = false;
 var theme = "yellow";
@@ -24,9 +24,7 @@ function preload() {
 function setup() {
   
   scroll = createVector(0, 0);
-  slowScroll = createVector(2, 0);
   normScroll = createVector(3, 0);
-  scrollBack = createVector(0, 0);
   scrollVel = normScroll;
   scrollStore = scrollVel;
   cam = createVector(0, 0);
@@ -65,10 +63,10 @@ function draw() {
 function mousePressed() {
   
   if (page.slice(0, 5) == "level") {
-    if (mouseX >= 400-scene.menuPadding-scene.homeSize && mouseX <= 400-scene.menuPadding && mouseY >= scene.menuPadding && mouseY <= scene.menuPadding+scene.homeSize) {
+    if (mouseCheck(width-scene.menuPadding-scene.settingsSize/2, scene.menuPadding+scene.settingsSize/2, scene.settingsSize, scene.settingsSize)) {
       scene.settings = !scene.settings;
       level.pauseLvl();
-    } else if (mouseX >= scene.menuPadding && mouseX <= scene.menuPadding+scene.homeSize && mouseY >= scene.menuPadding && mouseY <= scene.menuPadding+scene.homeSize) {
+    } else if (mouseCheck(scene.menuPadding+scene.homeSize/2, scene.menuPadding+scene.homeSize/2, scene.homeSize, scene.homeSize)) {
       page = "menu";
     } else if (!level.pause) {
       level.player.jump();
@@ -76,12 +74,12 @@ function mousePressed() {
   }
 
   if (page == "menu") {
-    if (mouseX >= 400-scene.menuPadding-scene.homeSize && mouseX <= 400-scene.menuPadding && mouseY >= scene.menuPadding && mouseY <= scene.menuPadding+scene.homeSize) {
+    if (mouseCheck(400-scene.menuPadding-scene.homeSize/2, scene.menuPadding+scene.homeSize/2, scene.homeSize, scene.homeSize)) {
       scene.settings = !scene.settings;
     }
     for (let i = 0; i < 5; i++) {
       for (let j = 0; j < 4; j++) {
-        if (abs(mouseX - (i*60+80)) <= 20 && abs(mouseY - (j*60+140)) <= 20) {
+        if (mouseCheck(i*60+80, j*60+140, 40, 40)) {
           page = "level" + str(i+j*5+1);
           level = new Level(i+j*5+1);
         }
@@ -92,7 +90,13 @@ function mousePressed() {
 }
 
 function keyPressed() {
-  if (key == " " || key == "ArrowUp") {
-    level.player.jump();
+  if (page.slice(0, 5) == "level") {
+    if (key == " " || key == "ArrowUp") {
+      level.player.jump();
+    }
   }
+}
+
+function mouseCheck(midX, midY, width, height) {
+  return abs(mouseX-midX)<=width/2 && abs(mouseY-midY)<=height/2;
 }

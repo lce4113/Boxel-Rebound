@@ -66,12 +66,8 @@ class Player {
     if (this.pos.x < scroll.x + 100) {
       if (!this.behind) {
         this.vel.x += 0.05;
-        scrollVel = normScroll;
-      } else {
-        scrollVel = slowScroll;
       }
     } else {
-      scrollVel = normScroll;
       this.vel = scrollVel;
     }
     

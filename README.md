@@ -25,5 +25,4 @@ docker-compose down
 * Add finished board to end of levels (with stars) - Om
 * mouseCheck() function
 * Make audio play after hitting sound button
-* Add favicon - Mikey (done)
 
